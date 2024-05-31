@@ -1,0 +1,18 @@
+<div [ngClass]="{'bg-green-400':city.visited}" class="flex flex-row justify-between border rounded-lg p-3 shadow-lg mt-2">
+
+  <div class="flex flex-row items-center space-x-4">
+    <h2 class="text-xl font-bold">{{ city.name }}</h2>
+    <p>{{ city.country }}</p>
+    <p>{{ city.month }}</p>
+  </div>
+
+  <div class="flex flex-col space-y-1">
+    
+    <button (click)="markVisited()" [ngClass]="{'hidden':city.visited}" class=" px-2 py-1 bg-green-400 text-white rounded">Visitada</button>
+    <button (click)="removeCity()" class="px-2 py-1 bg-red-500 text-white rounded">Eliminar</button>
+  </div>
+
+</div>
+
+    
+  

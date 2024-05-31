@@ -1,0 +1,63 @@
+<div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-lg bg-gradient-to-b from-white to-slate-100 rounded-md">
+      <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Lista de Ciudades</h1>
+  
+      <form [formGroup]=mForm action="#" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+          
+        <div>
+          <label for="name" class="sr-only">name</label>
+  
+          <div class="relative">
+            <input
+                formControlName="name"
+                type="text"
+                id="name"
+                class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                placeholder="Nombre de la ciudad"
+            />
+          </div>
+        </div>
+  
+        <div>
+          <label for="country" class="sr-only">country</label>
+  
+          <div class="relative">
+            <input
+                formControlName="country"
+                type="text"
+                id="country"
+                class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                placeholder="Nombre del país"
+            />
+          </div>
+        </div>
+
+        <div>
+            <label for="month" class="sr-only">month</label>
+    
+            <div class="relative">
+              <input
+                formControlName="month"
+                type="text"
+                id="month"
+                class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                placeholder="Mejor mes para visitar la ciudad"
+              />
+            </div>
+          </div>
+  
+        <button
+            (click)="sendForm()"
+            [disabled]="!mForm.valid"
+            type="submit"
+            class="disabled:bg-slate-200 disabled:border disabled:text-gray-500 disabled:border-gray-900 block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+        >
+          Guardar
+        </button>
+ 
+      </form>
+      <div *ngFor="let city of cities; let i = index">
+        <app-city-item [city]="city" (visited)="markCityVisited(i)" (delete)="deleteCity(i)"></app-city-item>
+      </div>
+    </div>
+  </div>
